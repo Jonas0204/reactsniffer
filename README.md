@@ -1,4 +1,4 @@
-# ReactSniffer 
+# ReactSniffer
 
 [![npm version](https://badge.fury.io/js/reactsniffer.svg)](https://www.npmjs.com/package/reactsniffer)
 [![license](https://img.shields.io/npm/l/reactsniffer)](https://github.com/fabiosferreira/reactsniffer/blob/main/LICENSE)
@@ -11,7 +11,7 @@ ReactSniffer is a tool to support practitioners and researchers in detecting cod
     <img src="https://github.com/fabiosferreira/reactsniffer/blob/main/img/ReactSniffer-Architecture.png" width= "600px" />
 </p>
 
-The Parser is a Command-Line Interface (CLI) implemented in Node, which receives as input a valid front-end file and generates an Abstract Syntax Tree (AST) in a JSON format. The Smells Detector module is also implemented in Node and relies on the AST to search and inspect React elements. 
+The Parser is a Command-Line Interface (CLI) implemented in Node, which receives as input a valid front-end file and generates an Abstract Syntax Tree (AST) in a JSON format. The Smells Detector module is also implemented in Node and relies on the AST to search and inspect React elements.
 
 ## Installation
 
@@ -37,10 +37,10 @@ Two CSV files (one per file and another by component) with more details about ea
 
 ## Supported Smells
 
-ReactSniffer supports the following smells: 
+ReactSniffer supports the following smells:
 
-| Smell      | Description                                                                             |
-|------------|-----------------------------------------------------------------------------------------|
+| Smell                              | Description                                                     |
+| ---------------------------------- | --------------------------------------------------------------- |
 | Large Component                    | Component with too many props, attributes, and/or lines of code |
 | Too Many Props                     | Passing too many properties to a single component               |
 | Inheritance Instead of Composition | Using inheritance to reuse code among components                |
@@ -50,7 +50,6 @@ ReactSniffer supports the following smells:
 | JSX outside the render method      | Implementing markup in multiple methods                         |
 | Uncontrolled Components            | A component that does not use props/state to handle form's data |
 | Large File                         | A file with several components and lines of code                |
-
 
 ## License
 
