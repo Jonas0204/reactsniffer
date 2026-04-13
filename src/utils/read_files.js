@@ -21,13 +21,11 @@ var walk = function (dir) {
           files = files.concat(walk(file));
         } else {
           // Filtering js files
-          if (
-            file.endsWith('.js') ||
-            file.endsWith('.jsx') ||
-            file.endsWith('.ts') ||
-            file.endsWith('.tsx')
-          )
+          const allowedExtensions = ['.js', '.jsx', '.ts', '.tsx'];
+
+          if (allowedExtensions.some((extension) => file.endsWith(extension))) {
             files.push(file);
+          }
         }
       } catch (err) {
         // console.log("Error: ",err);

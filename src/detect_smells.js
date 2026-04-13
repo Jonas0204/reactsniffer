@@ -181,14 +181,12 @@ function recursive_search(item, component, components, functions) {
       } else if (value == 'ImportSpecifier' || value == 'ImportDefaultSpecifier') {
         imports.push(item['local']['name']);
       }
-    } else if (key == 'property' && !component['properties'].includes(value['name'])) {
-      if (
-        (item['object']['name'] && item['object']['name'] == 'props') ||
-        (item['object']['property'] &&
-          item['object']['property']['name'] &&
-          item['object']['property']['name'] == 'props')
-      )
-        component['properties'].push(value['name']);
+    } else if (key == 'property' && value?.name && !component['properties'].includes(value.name)) {
+      const obj = item.object;
+
+      if (obj && (obj?.name === 'props' || obj?.property?.name === 'props')) {
+        component['properties'].push(value.name);
+      }
     }
     // Check for forceUpdate and directy dom manipulation
     else if (key == 'callee') {
