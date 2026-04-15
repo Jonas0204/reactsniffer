@@ -1,0 +1,6 @@
+id,Large File,File URL,LOC,N_Components,N_Functions,N_Imports,"Em uma escala de 1 a 5, como você avalia a relevância desse smell?
+1 = smell não é importante e, provavelmente, não será refatorado
+5 = smell é muito importante e, provavelmente, será refatorado em breve.",Observação
+1,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\common\pagination.tsx,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\common\pagination.tsx,118,5,0,6,,
+2,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\costTable\costTable.tsx,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\costTable\costTable.tsx,242,1,0,24,,
+3,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\tabview.tsx,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\tabview.tsx,310,1,0,23,,

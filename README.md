@@ -35,6 +35,44 @@ The output will show the smells into two summarized tables.
 
 Two CSV files (one per file and another by component) with more details about each smell will be generated.
 
+## Flags
+
+ReactSniffer supports optional command-line flags to configure the threshold strategy used for detecting code smells.
+
+### Threshold Strategy
+
+You can specify how thresholds are computed using the following flag:
+
+```bash
+--threshold=<mode>
+```
+
+or the short form:
+
+```bash
+--t=<mode>
+```
+
+#### Available Modes
+
+| Mode  | Description                                                       |
+| ----- | ----------------------------------------------------------------- |
+| `emp` | Uses fixed empirical thresholds defined in the tool (default)     |
+| `p95` | Uses the 95th percentile of the analyzed data                     |
+| `iqr` | Uses the Interquartile Range (IQR) to detect statistical outliers |
+
+### Debugging Thresholds
+
+To inspect how thresholds are computed and which values are used internally, you can enable debug output:
+
+```bash
+reactsniffer myproject/react/src --threshold=iqr --debug-thresholds
+```
+
+This will output:
+
+- the computed thresholds for each metric
+
 ## Supported Smells
 
 ReactSniffer supports the following smells:

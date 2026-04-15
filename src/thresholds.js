@@ -37,6 +37,61 @@ function calcQuartile(arr, q) {
   }
 }
 
+function calcIQRThreshold(arr) {
+  if (!arr || arr.length === 0) return 0;
+
+  const q1 = calcQuartile(arr, 25);
+  const q3 = calcQuartile(arr, 75);
+  const iqr = q3 - q1;
+
+  return q3 + 1.5 * iqr;
+}
+
+exports.compute_iqr = function (all_components, all_files) {
+  loc = [];
+  N_props = [];
+  NM = [];
+  NA = [];
+  NM_JSX = [];
+
+  for (const component of all_components) {
+    loc.push(component["loc"]);
+    N_props.push(component["properties"].length);
+    NM.push(component["classMethods"].length + component["functions"].length);
+    NM_JSX.push(component["JSXOutsideRender"].length);
+    NA.push(component["classProperties"].length);
+  }
+
+  loc_files = [];
+  N_components = [];
+  N_functions = [];
+  N_imports = [];
+
+  for (const file of all_files) {
+    loc_files.push(file["LOC"]);
+    N_components.push(file["N_Components"]);
+    N_functions.push(file["N_Functions"]);
+    N_imports.push(file["N_Imports"]);
+  }
+
+  thresholds = {};
+
+  // Component thresholds
+  thresholds["LOC_Component"] = calcIQRThreshold(loc);
+  thresholds["N_props"] = calcIQRThreshold(N_props);
+  thresholds["NM"] = calcIQRThreshold(NM);
+  thresholds["NM_JSX"] = calcIQRThreshold(NM_JSX);
+  thresholds["NA"] = calcIQRThreshold(NA);
+
+  // File thresholds
+  thresholds["LOC_File"] = calcIQRThreshold(loc_files);
+  thresholds["N_Components"] = calcIQRThreshold(N_components);
+  thresholds["N_Functions"] = calcIQRThreshold(N_functions);
+  thresholds["N_Imports"] = calcIQRThreshold(N_imports);
+
+  return thresholds;
+};
+
 exports.compute = function (all_components, all_files) {
   loc = [];
   N_props = [];

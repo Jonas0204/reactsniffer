@@ -1,0 +1,15 @@
+id,file,Component,Smell,Details,"Em uma escala de 1 a 5, como você avalia a relevância desse smell?
+1 = smell não é importante e, provavelmente, não será refatorado
+5 = smell é muito importante e, provavelmente, será refatorado em breve.",Observação
+1,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\common\modal.tsx,Modal,Large Component,LOC: 45; Number of props: 15; Number of attributes: 0; Number of methods: 0,,
+2,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\common\modal.tsx,Modal,Too many props,"Number of props: 15; Props: open,onSecondaryAction,onPrimaryAction,title,content,primaryButtonText,secondaryButtonText,showSecondaryButton,primaryButtonVariant,secondaryButtonVariant,position,top,left,right,bottom",,
+3,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\costTable\costTable.tsx,CostTable,Large Component,LOC: 205; Number of props: 7; Number of attributes: 0; Number of methods: 5,,
+4,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\darkModeContext.tsx,DarkModeProvider,Large Component,LOC: 24; Number of props: 3; Number of attributes: 0; Number of methods: 1,,
+5,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\fixCost.tsx,FixCost,Large Component,LOC: 99; Number of props: 1; Number of attributes: 0; Number of methods: 2,,
+6,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\newVarCostChart.tsx,LineChart,Large Component,LOC: 73; Number of props: 19; Number of attributes: 0; Number of methods: 3,,
+7,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\newVarCostChart.tsx,LineChart,Too many props,"Number of props: 19; Props: width,height,top,right,bottom,left,date,y,tooltip,raw,description,range,domain,nice,innerWidth,innerHeight,fill,fontSize,textAnchor",,
+8,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\tabview.tsx,TabView,Large Component,LOC: 281; Number of props: 6; Number of attributes: 0; Number of methods: 6,,
+9,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\tabview.tsx,TabView,Direct DOM Manipulation,"Line 167: const a = document.createElement(""a"");
+",,
+10,D:\Private Daten\Jonas\BA\KFZ-Rechner\BARM-kfz-rechner\src\components\features\tabview.tsx,TabView,Uncontrolled component,"Line 234: <input
+",,

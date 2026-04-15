@@ -6,11 +6,28 @@ const compute_thresholds = require('./src/thresholds');
 const csvWriter = require('./src/utils/csv-writer');
 const path = require('path');
 
-var dirname = process.argv.slice(2)[0];
+const args = process.argv.slice(2);
+
+let dirname = args[0];
 
 if (!path.isAbsolute(dirname)) {
   dirname = path.join(process.cwd(), dirname);
 }
+
+let thresholdMode = "emp";
+let debugThresholds = false;
+
+args.forEach((arg) => {
+  if (arg.startsWith("--threshold=")) {
+    thresholdMode = arg.split("=")[1];
+  }
+  if (arg.startsWith("--t=")) {
+    thresholdMode = arg.split("=")[1];
+  }
+  if (arg == "--debug-thresholds") {
+    debugThresholds = true;
+  }
+});
 
 ast_react_files = filter_react_files(dirname);
 
@@ -45,8 +62,33 @@ output_components = [];
 output_files = [];
 csv_smells = [];
 
-// thresholds = compute_thresholds.compute(all_components, all_files);
-thresholds = compute_thresholds.get_empirical_thresholds();
+let thresholds;
+
+switch (thresholdMode) {
+  case "emp":
+    console.log("Using emp threshold");
+    thresholds = compute_thresholds.get_empirical_thresholds();
+    break;
+
+  case "p95":
+    console.log("Using p95 threshold");
+    thresholds = compute_thresholds.compute(all_components, all_files);
+    break;
+
+  case "iqr":
+    console.log("Using iqr threshold");
+    thresholds = compute_thresholds.compute_iqr(all_components, all_files);
+    break;
+
+  default:
+    console.warn(
+        `Unexpected Threshold-Mode: ${thresholdMode}, fallback to 'emp'`,
+    );
+    thresholds = compute_thresholds.get_empirical_thresholds();
+}
+if (debugThresholds) {
+  console.log("Thresholds:", thresholds);
+}
 
 var cont_smells_files = 0;
 for (const file of all_files) {
